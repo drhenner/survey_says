@@ -1,0 +1,11 @@
+<h1> Question </h1>
+
+<p>
+  <%= @question.details %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_admin_question_path(@question), :class => 'button' %> |
+  <%= link_to "Destroy", survey_admin_question_path(@question), :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> |
+  <%= link_to "View All", survey_admin_questions_path, :class => 'button' %>
+</p>

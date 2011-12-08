@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  question_id: 1
+  details: MyText
+  active: true
+  position: 1
+
+two:
+  question_id: 1
+  details: MyText
+  active: false
+  position: 2

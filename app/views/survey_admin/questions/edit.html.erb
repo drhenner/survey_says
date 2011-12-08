@@ -1,0 +1,8 @@
+<h1> Edit Question </h1>
+
+<%= form_for(@question, :url => survey_admin_question_path(@question)) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+<% end %>
+
+  <%= link_to 'Show', survey_admin_question_path( @question ), :class => 'button' %> |
+  <%= link_to 'View All', survey_admin_questions_path, :class => 'button' %>

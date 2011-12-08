@@ -1,0 +1,17 @@
+<h1> Questions </h1>
+
+<table>
+  <tr>
+    <th>Details</th>
+  </tr>
+  <% for question in @questions %>
+    <tr>
+      <td><%= truncate(question.details, :length => 35) %></td>
+      <td><%= link_to "Show", survey_admin_question_path(question) %></td>
+      <td><%= link_to "Edit", edit_survey_admin_question_path(question) %></td>
+      <td><%= link_to "Destroy", survey_admin_question_path(question), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Question", new_survey_admin_question_path, :class => 'button' %></p>
