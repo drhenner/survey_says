@@ -6,12 +6,15 @@
 
 <h3>Answers</h3>
 
-<ul id='answers_to_question'>
-  <%= @question.answers.each do |answer| %>
-    <li data-answer_id=<%= answer.id %>> <%= link_to answer.display_position, '#' %>) <%= answer.details %> </li>
-  <% end %>
-</ul>
-
+<% if  @question.answers.empty? %>
+  There are currently no answers for this question.
+<% else %>
+  <ul id='answers_to_question'>
+    <%= @question.answers.each do |answer| %>
+      <li data-answer_id=<%= answer.id %>> <%= link_to answer.display_position, '#' %>) <%= answer.details %> </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <p>
   <%= link_to "Edit", edit_survey_admin_question_path(@question), :class => 'button' %> |

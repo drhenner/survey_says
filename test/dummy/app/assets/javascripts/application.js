@@ -5,5 +5,8 @@
 // the compiled file.
 //
 //= require jquery
+
+//= require 'survey_says'
+
 //= require jquery_ujs
 //= require_tree .

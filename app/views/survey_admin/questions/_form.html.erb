@@ -12,8 +12,27 @@
 
   <div class="field">
     <%= f.label :details %><br />
-    <%= f.text_field :details %>
+    <%= f.text_area :details %>
   </div>
+
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.number_field :position %>
+  </div>
+  <fieldset>
+    <%= f.fields_for :answers do |answer_fields| %>
+      <ul>
+        <li>
+          <%= answer_fields.label :details, 'Answer' %>
+          <%= answer_fields.text_area :details %>
+        </li>
+        <li>
+          <%= answer_fields.label :position, 'position' %>
+          <%= answer_fields.number_field :position %>
+        </li>
+      </ul>
+    <% end %>
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

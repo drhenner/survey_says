@@ -1,4 +1,6 @@
 class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
+  layout 'survey_admin'
+
   def index
     @questions = Question.all
   end
@@ -10,6 +12,7 @@ class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
   def new
     form_info
     @question = Question.new
+    @question.answers.build# = Question.new
   end
 
   def create
