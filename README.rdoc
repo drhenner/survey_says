@@ -15,6 +15,10 @@ able to score the user's characteristics
 Clone the engine:
 
 git clone git@github.com:drhenner/survey_says.git
+
+gem install bundler
+bundle install
+
 rake db:migrate
 rake test
 
