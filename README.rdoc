@@ -1,3 +1,21 @@
 = SurveySays
 
-This project rocks and uses MIT-LICENSE.
+the purpose of this project is to allow you to maintain questionnaires on your rails 3 app.
+
+The goal is to allow the questionnaire to be:
+
+intelligent
+flexible (able to change with time)
+able to gather data about the user's characteristics
+able to score the user's characteristics
+
+
+= Contribute
+
+Clone the engine:
+
+git clone git@github.com:drhenner/survey_says.git
+rake db:migrate
+rake test
+
+Start making edits...
