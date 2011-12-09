@@ -5,4 +5,6 @@ class Question < ActiveRecord::Base
                             :order => 'answers.position desc'
 
   validates :details,    :presence => true
+
+  accepts_nested_attributes_for :answers#, :reject_if => proc { |attributes| attributes['details'].blank? }
 end

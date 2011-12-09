@@ -4,8 +4,20 @@
   <%= @question.details %>
 </p>
 
+<h3>Answers</h3>
+
+<ul id='answers_to_question'>
+  <%= @question.answers.each do |answer| %>
+    <li data-answer_id=<%= answer.id %>> <%= link_to answer.display_position, '#' %>) <%= answer.details %> </li>
+  <% end %>
+</ul>
+
+
 <p>
   <%= link_to "Edit", edit_survey_admin_question_path(@question), :class => 'button' %> |
-  <%= link_to "Destroy", survey_admin_question_path(@question), :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> |
-  <%= link_to "View All", survey_admin_questions_path, :class => 'button' %>
+  <%= link_to "Inactivate", survey_admin_question_path(@question),
+                            :confirm  => 'Are you sure?',
+                            :method   => :delete,
+                            :class    => 'button' %> |
+  <%= link_to "View Questions", survey_admin_questions_path, :class => 'button' %>
 </p>

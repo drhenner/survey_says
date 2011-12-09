@@ -1,15 +1,28 @@
 <h1> Questions </h1>
 
 <table>
-  <tr>
-    <th>Details</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Details</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
   <% for question in @questions %>
     <tr>
       <td><%= truncate(question.details, :length => 35) %></td>
+      <td><%= question.active? ? 'Active' : 'Inactive' %></td>
       <td><%= link_to "Show", survey_admin_question_path(question) %></td>
       <td><%= link_to "Edit", edit_survey_admin_question_path(question) %></td>
-      <td><%= link_to "Destroy", survey_admin_question_path(question), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td>
+        <% if question.active? %>
+          <%= link_to "Inactivate", survey_admin_question_path(question),
+                                    :confirm  => 'Are you sure?',
+                                    :method   => :delete %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
