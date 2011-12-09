@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/drhenner/nifty-generators.git
-  revision: fd658e6d67251d7c714ac6a32edfd3b7807f7475
+  revision: 14650c6f460c0d5c6852e792b63aa6418f921b1d
   specs:
-    nifty-generators (0.4.2)
+    nifty-generators (0.4.6)
 
 PATH
   remote: .
