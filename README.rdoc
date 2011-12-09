@@ -18,6 +18,9 @@ Clone the engine:
 * gem install bundler
 * bundle install
 * rake db:migrate
+* cd test/dummy/
+* rake db:test:prepare
+* cd ../..
 * rake test
 
 Start making edits...
