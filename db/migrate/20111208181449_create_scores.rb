@@ -7,5 +7,9 @@ class CreateScores < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :scores, :answer_id
+    add_index :scores, :survey_property_id
+
   end
 end

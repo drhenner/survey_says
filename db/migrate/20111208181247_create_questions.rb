@@ -1,8 +1,8 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
-      t.text :details
-      t.boolean :active
+      t.text :details, :null => false
+      t.boolean :active, :default => true
       t.integer :position
 
       t.timestamps

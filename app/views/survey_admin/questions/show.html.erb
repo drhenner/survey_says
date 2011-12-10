@@ -4,14 +4,17 @@
   <%= @question.details %>
 </p>
 
-<h3>Answers</h3>
+<h3> <%= link_to 'Answers', survey_admin_question_answers_url(@question) %>  </h3>
 
 <% if  @question.answers.empty? %>
   There are currently no answers for this question.
 <% else %>
   <ul id='answers_to_question'>
-    <%= @question.answers.each do |answer| %>
-      <li data-answer_id=<%= answer.id %>> <%= link_to answer.display_position, '#' %>) <%= answer.details %> </li>
+    <% @question.answers.each do |answer| %>
+      <li data-answer_id=<%= answer.id %> >
+        <%= link_to answer.display_position, survey_admin_question_answer_url(@question, answer) %>)
+        <%= answer.details %><br/><br/><br/>
+      </li>
     <% end %>
   </ul>
 <% end %>

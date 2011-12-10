@@ -1,0 +1,8 @@
+<h1> New Answer </h1>
+
+<%= form_for @answer, :url => survey_admin_question_answers_path(@answer.question, @answer) do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Create' , :class => 'button' %></div>
+<% end %>
+
+<p><%= link_to "Back to List", survey_admin_question_answers_path(@answer.question), :class => 'button' %></p>

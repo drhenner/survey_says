@@ -1,0 +1,2 @@
+module SurveyAdmin::AnswersHelper
+end

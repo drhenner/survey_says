@@ -1,0 +1,39 @@
+
+<p>
+  <label style='padding: 0px;'><%= link_to 'Question:', survey_admin_question_path(@question) %></label>
+  &nbsp; <%= @question.details %>
+</p>
+
+<h1> Answers </h1>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Details</th>
+    <th>Active</th>
+    <th>Position</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <% for answer in @answers %>
+    <tr>
+      <td><%= truncate(answer.details, :limit => 55) %></td>
+      <td><%= answer.active.to_s %></td>
+      <td><%= answer.position %></td>
+      <td><%= link_to "Show", [:survey_admin, @question, answer] %></td>
+      <td><%= link_to "", edit_survey_admin_question_answer_path(@question, answer),
+                          :class => 'ss_sprite ss_application_edit' %></td>
+      <td><%= link_to "", [:survey_admin, @question, answer],
+                            :confirm  => 'Are you sure?',
+                            :method   => :delete,
+                            :class    => 'ss_sprite ss_cross' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%#= will_paginate @answers %>
+
+<p><%= link_to "New Answer", new_survey_admin_question_answer_path(@question), :class => 'button' %></p>

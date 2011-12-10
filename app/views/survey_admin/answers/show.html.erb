@@ -1,0 +1,25 @@
+<h1> Answer </h1>
+
+<p>
+  <strong>Question:</strong>
+  <%= link_to @answer.question.details, survey_admin_question_path(@answer.question) %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @answer.details %>
+</p>
+<p>
+  <strong>Active:</strong>
+  <%= @answer.active %>
+</p>
+<p>
+  <strong>Position:</strong>
+  <%= @answer.position %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_admin_question_answer_path(@answer.question, @answer), :class => 'button' %> |
+  <%= link_to "Destroy", [:survey_admin, @answer.question, @answer], :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> |
+  <%= link_to "View Answers", survey_admin_question_answers_path(@answer.question), :class => 'button' %>
+</p>

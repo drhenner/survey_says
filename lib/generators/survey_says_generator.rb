@@ -10,7 +10,7 @@ class SurveySaysGenerator < Rails::Generators::Base
        say_status("skipped", "insert into app/assets/javascripts/application.js", :yellow)
     else
        insert_into_file "app/assets/javascripts/application.js", :after => %r{//= require ['"]?jquery['"]?\n} do
-          "\n//= require 'survey_says'\n\n"
+          "\n//= require \./survey_says\n\n"
        end
     end
 
