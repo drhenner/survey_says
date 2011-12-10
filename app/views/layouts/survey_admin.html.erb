@@ -9,11 +9,28 @@
   </head>
   <body>
     <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
+      <div id="main-container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+        <%= content_tag :h1, yield(:title) if show_title? %>
+        <%= yield %>
+      </div>
+      <div id="right-container">
+        <ul style='padding:10px;'>
+          <li style='margin-bottom:10px;'><%= link_to "Questions", survey_admin_questions_path() %></li>
+          <% if @question.try(:id) || @answer.try(:id) %>
+            <li style='margin-bottom:10px;'>
+              <%= link_to "Answers", survey_admin_question_answers_path(@question) %>
+            </li>
+          <% elsif @answer.try(:id) %>
+            <li style='margin-bottom:10px;'>
+              <%= link_to "Answers", survey_admin_question_answers_path(@answer.question) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class='clearfix'></div>
     </div>
   </body>
 </html>

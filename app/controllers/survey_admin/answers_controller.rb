@@ -1,4 +1,4 @@
-class SurveyAdmin::AnswersController < ApplicationController
+class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
   def index
     @question   = Question.find(params[:question_id])
     @answers    = @question.answers.all

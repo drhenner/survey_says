@@ -1,4 +1,5 @@
 class SurveyAdmin::BaseController < ApplicationController
+  layout 'survey_admin'
   before_filter :require_survey_admin
 
   private

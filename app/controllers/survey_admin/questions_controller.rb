@@ -1,5 +1,4 @@
 class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
-  layout 'survey_admin'
 
   def index
     @questions = Question.all
