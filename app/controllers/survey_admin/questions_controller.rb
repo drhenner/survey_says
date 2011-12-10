@@ -12,7 +12,7 @@ class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
   def new
     form_info
     @question = Question.new
-    @question.answers.build# = Question.new
+    #@question.answers.build# = Question.new
   end
 
   def create

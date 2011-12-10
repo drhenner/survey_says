@@ -1,0 +1,13 @@
+<ul>
+  <li>
+    <%= f.label :details, 'Answer' %>
+    <%= f.text_area :details %>
+  </li>
+  <li>
+    <%= f.label :position, 'position' %>
+    <%= f.number_field :position %>
+  </li>
+</ul>
+<div style='float:right;'>
+  <%= f.hidden_field(:_destroy) + link_to('remove', "javascript:void(0)", :class => "remove_child") %>
+</div>

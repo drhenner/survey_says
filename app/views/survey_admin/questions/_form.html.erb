@@ -19,20 +19,29 @@
     <%= f.label :position %><br />
     <%= f.number_field :position %>
   </div>
-  <fieldset>
-    <%= f.fields_for :answers do |answer_fields| %>
-      <ul>
-        <li>
-          <%= answer_fields.label :details, 'Answer' %>
-          <%= answer_fields.text_area :details %>
-        </li>
-        <li>
-          <%= answer_fields.label :position, 'position' %>
-          <%= answer_fields.number_field :position %>
-        </li>
-      </ul>
-    <% end %>
-  </fieldset>
+
+    <div class=''>
+      <%= f.fields_for :answers do |answer_fields| %>
+        <div class='fields answer-div'>
+          <%= render :partial => 'answer', :locals => { :f => answer_fields } %>
+          <div class='clearfix'></div>
+        </div>
+      <% end %>
+    </div>
+
+  <p>
+    <%= link_to "New Answer", '#add_answer', :class => 'add_answer', 'data-association' => "answers" %>
+  </p>
+
+  <div id='answers_fields_template' style='display:none'>
+    <div class='new_fields answer-div'>
+      <%= f.fields_for :answers, Answer.new, :child_index => "new_answers" do |a_f|%>
+        <%= render :partial => 'answer', :locals => { :f => a_f } %>
+      <% end %>
+      <div class='clearfix'></div>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

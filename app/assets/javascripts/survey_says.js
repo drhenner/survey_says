@@ -1,1 +1,1 @@
-//= require_tree 'survey_says'
+//= require_tree ./survey_says
