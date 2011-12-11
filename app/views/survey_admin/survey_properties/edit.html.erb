@@ -1,0 +1,11 @@
+<h1> Edit Property </h1>
+
+<%= form_for @survey_property, :url => [:survey_admin, @survey_property] do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
+<% end %>
+
+<p>
+  <%= link_to "Show", [:survey_admin, @survey_property], :class => 'button' %> |
+  <%= link_to "View Properties", survey_admin_survey_properties_path, :class => 'button' %>
+</p>

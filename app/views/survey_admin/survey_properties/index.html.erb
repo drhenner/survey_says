@@ -1,0 +1,19 @@
+<h1> Properties </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for survey_property in @survey_properties %>
+    <tr>
+      <td><%= survey_property.name %></td>
+      <td><%= link_to "Show", [:survey_admin, survey_property] %></td>
+      <td><%= link_to "", edit_survey_admin_survey_property_path(survey_property), :class => 'ss_sprite ss_application_edit' %></td>
+      <td><%= link_to "", [:survey_admin, survey_property], :confirm => 'Are you sure?', :method => :delete, :class => 'ss_sprite ss_cross' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%#= will_paginate @survey_properties %>
+
+<p><%= link_to "New Property", new_survey_admin_survey_property_path, :class => 'button' %></p>

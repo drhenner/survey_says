@@ -5,6 +5,8 @@ class Answer < ActiveRecord::Base
   validates :question_id, :presence => true
   validates :details,     :presence => true
 
+  accepts_nested_attributes_for :scores, :reject_if => proc { |attributes| attributes['value'].blank? }
+
   def display_position
     position ? position.to_s : '*'
   end

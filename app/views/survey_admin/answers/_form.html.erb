@@ -18,3 +18,24 @@
     <%= f.number_field :position %>
   </li>
 </ul>
+
+
+  <%= f.fields_for :scores, :child_index => "new_scores" do |score_f|%>
+    <div class='fields answer-div'>
+      <%= render :partial => 'score', :locals => { :f => score_f } %>
+      <div class='clearfix'></div>
+    </div>
+  <% end %>
+
+<p>
+  <%= link_to "New Property", '#add_answer', :class => 'add_association', 'data-association' => "scores" %>
+</p>
+
+<div id='scores_fields_template' style='display:none'>
+  <div class='new_fields answer-div'>
+    <%= f.fields_for :scores, Score.new, :child_index => "new_scores" do |score_f|%>
+      <%= render :partial => 'score', :locals => { :f => score_f } %>
+    <% end %>
+    <div class='clearfix'></div>
+  </div>
+</div>

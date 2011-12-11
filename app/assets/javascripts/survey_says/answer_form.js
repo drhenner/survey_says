@@ -4,7 +4,6 @@ var SurveySays = window.SurveySays || {};
 if (typeof SurveySays.Question == "undefined") {
     SurveySays.Question = {};
 }
-hh = null;
 // If we already have the purchaseOrder object don't override
 if (typeof SurveySays.Question.answer == "undefined") {
 
@@ -12,8 +11,7 @@ if (typeof SurveySays.Question.answer == "undefined") {
         //test    : null,
         initialize      : function( ) {
 
-          jQuery('.add_answer').bind('click', function(){
-            hh = $(this);
+          jQuery('.add_association').bind('click', function(){
             var assoc = $(this).attr('data-association');
             var content = $('#' + assoc + '_fields_template').html();
             var regexp = new RegExp('new_' + assoc, 'g');
@@ -21,7 +19,7 @@ if (typeof SurveySays.Question.answer == "undefined") {
             $(this).parent().before(content.replace(regexp, new_id));
             return false;
           });
-          
+
           $('form a.remove_child').live('click', function() {
             var hidden_field = $(this).prev('input[type=hidden]')[0];
             if(hidden_field) {

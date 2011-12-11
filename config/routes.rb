@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  namespace(:survey_admin){ resources :survey_properties }
+
   #namespace(:survey_admin){ resources :answers }
 
   root :to => "survey_admin/questions#index"

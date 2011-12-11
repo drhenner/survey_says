@@ -1,0 +1,12 @@
+<h1> Properties </h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @survey_property.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_admin_survey_property_path(@survey_property), :class => 'button' %> |
+  <%= link_to "Destroy", [:survey_admin, @survey_property], :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> |
+  <%= link_to "View Properties", survey_admin_survey_properties_path, :class => 'button' %>
+</p>

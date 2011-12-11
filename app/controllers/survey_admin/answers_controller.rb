@@ -1,4 +1,6 @@
 class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
+  helper_method :survey_properties
+
   def index
     @question   = Question.find(params[:question_id])
     @answers    = @question.answers.all
@@ -48,6 +50,10 @@ class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
   end
 
   private
+    def survey_properties
+      @survey_properties ||= SurveyProperty.all.map{|sp| [sp.name, sp.id]}
+    end
+
     def form_info
 
     end
