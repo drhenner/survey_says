@@ -1,6 +1,6 @@
 
 <p>
-  <label style='padding: 0px;'><%= link_to 'Question:', survey_admin_question_path(@question) %></label>
+  <label style='padding: 0px;'>Question:</label>
   &nbsp; <%= @question.details %>
 </p>
 
@@ -31,6 +31,25 @@
                             :method   => :delete,
                             :class    => 'ss_sprite ss_cross' %></td>
     </tr>
+    <tbody>
+      <tr class='no-divider'>
+        <td colspan=6>
+          <div class=' row'><label >Properties:</label></div>
+          <% if answer.scores.empty? %>
+            <%= link_to 'No properties...', edit_survey_admin_question_answer_path(@question, answer) %>
+          <% else %>
+            <ul class='span7'>
+              <% answer.scores.each do |score| %>
+               <li style=''>
+                    <span class='span4' style='padding:0px 5px 0 0;'>  <%= score.survey_property.name %>:</span>
+                    <%= score.value %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
   <% end %>
 </table>
 

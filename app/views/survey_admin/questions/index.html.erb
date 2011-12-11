@@ -14,7 +14,7 @@
     <tr>
       <td><%= truncate(question.details, :length => 35) %></td>
       <td><%= question.active? ? 'Active' : 'Inactive' %></td>
-      <td><%= link_to "Show", survey_admin_question_path(question) %></td>
+      <td><%= link_to "Show", survey_admin_question_answers_path(question) %></td>
       <td><%= link_to "Edit", edit_survey_admin_question_path(question) %></td>
       <td>
         <% if question.active? %>

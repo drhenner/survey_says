@@ -18,7 +18,7 @@ class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
     @question = Question.new(params[:question])
     if @question.save
       flash[:notice] = "Successfully created question."
-      redirect_to survey_admin_question_url(@question)
+      redirect_to survey_admin_question_answers_url(@question)
     else
       form_info
       render :action => 'new'
@@ -34,7 +34,7 @@ class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
     @question = Question.find(params[:id])
     if @question.update_attributes(params[:question])
       flash[:notice] = "Successfully updated question."
-      redirect_to survey_admin_question_url(@question)
+      redirect_to survey_admin_question_answers_url(@question)
     else
       form_info
       render :action => 'edit'
