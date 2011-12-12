@@ -20,6 +20,11 @@
     <%= f.number_field :position %>
   </div>
 
+  <div class="field">
+    <%= f.label :questionnaire_id %><br />
+    <%= f.select :questionnaire_id, questionnaire_options, :include_blank => true %>
+  </div>
+
     <div class=''>
       <%= f.fields_for :answers do |answer_fields| %>
         <div class='fields answer-div'>

@@ -1,4 +1,5 @@
 class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
+  helper_method :questionnaire_options
 
   def index
     @questions = Question.all
@@ -50,6 +51,9 @@ class SurveyAdmin::QuestionsController < SurveyAdmin::BaseController
   end
 
   private
+  def questionnaire_options
+    @questionnaire_options ||= Questionnaire.all.map{|q| [q.name, q.id]}
+  end
 
   def form_info
 

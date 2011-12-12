@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211175518) do
+ActiveRecord::Schema.define(:version => 20111211180011) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -22,13 +22,22 @@ ActiveRecord::Schema.define(:version => 20111211175518) do
     t.datetime "updated_at"
   end
 
+  create_table "questionnaires", :force => true do |t|
+    t.string "name", :null => false
+  end
+
+  add_index "questionnaires", ["name"], :name => "index_questionnaires_on_name"
+
   create_table "questions", :force => true do |t|
     t.text     "details"
     t.boolean  "active"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "questionnaire_id"
   end
+
+  add_index "questions", ["questionnaire_id"], :name => "index_questions_on_questionnaire_id"
 
   create_table "scores", :force => true do |t|
     t.integer  "answer_id"

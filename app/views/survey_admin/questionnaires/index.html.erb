@@ -1,0 +1,18 @@
+<h1> Questionnaires </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for questionnaire in @questionnaires %>
+    <tr>
+      <td><%= questionnaire.name %></td>
+      <td><%= link_to "Show", [:survey_admin, questionnaire] %></td>
+      <td><%= link_to "", edit_survey_admin_questionnaire_path(questionnaire), :class => 'ss_sprite ss_application_edit' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%#= will_paginate @questionnaires %>
+
+<p><%= link_to "New Questionnaire", new_survey_admin_questionnaire_path, :class => 'button' %></p>

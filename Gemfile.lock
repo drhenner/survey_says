@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/drhenner/nifty-generators.git
-  revision: 14650c6f460c0d5c6852e792b63aa6418f921b1d
+  revision: ece94b3a56e0e00b083509711904e573281397a4
   specs:
     nifty-generators (0.4.6)
 
@@ -128,7 +128,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (1.4.1)
+    twitter-bootstrap-rails (1.4.2)
       actionpack
       jquery-rails (~> 1.0)
       less

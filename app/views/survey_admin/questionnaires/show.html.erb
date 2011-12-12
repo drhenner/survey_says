@@ -1,0 +1,11 @@
+<h1> Questionnaire </h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @questionnaire.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_admin_questionnaire_path(@questionnaire), :class => 'button' %> |
+  <%= link_to "View All", survey_admin_questionnaires_path, :class => 'button' %>
+</p>

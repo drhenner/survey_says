@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  namespace(:survey_admin){ resources :questionnaires }
+
   namespace(:survey_admin){ resources :survey_properties }
 
   #namespace(:survey_admin){ resources :answers }

@@ -1,0 +1,11 @@
+<h1> Edit Questionnaire </h1>
+
+<%= form_for @questionnaire, :url => [:survey_admin, @questionnaire] do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
+<% end %>
+
+<p>
+  <%= link_to "Show", [:survey_admin, @questionnaire], :class => 'button' %> |
+  <%= link_to "View All", survey_admin_questionnaires_path, :class => 'button' %>
+</p>
