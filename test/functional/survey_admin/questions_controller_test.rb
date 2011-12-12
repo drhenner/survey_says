@@ -28,7 +28,7 @@ class SurveyAdmin::QuestionsControllerTest < ActionController::TestCase
   def test_create_valid
     Question.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to survey_admin_question_url(assigns(:question))
+    assert_redirected_to survey_admin_question_answers_url(assigns(:question))
   end
 
   def test_edit
@@ -48,7 +48,7 @@ class SurveyAdmin::QuestionsControllerTest < ActionController::TestCase
     question = Factory(:question)
     Question.any_instance.stubs(:valid?).returns(true)
     put :update, :id => question.id
-    assert_redirected_to survey_admin_question_url(assigns(:question))
+    assert_redirected_to survey_admin_question_answers_url(assigns(:question))
   end
 
   def test_destroy
