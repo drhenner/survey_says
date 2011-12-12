@@ -24,6 +24,14 @@ module SurveySays
             joins(:survey_property).
             where(['scores.answer_id IN (?)',score_answer_ids]).all
     end
+    def score_questionnaire(questionnaire_id)
+      questionnaire = Questionnaire.includes({:questions => :answers}).find(questionnaire_id)
+      score_answer_ids = questionnaire.questions.map(&:answer_ids).flatten & answer_ids
+      Score.group(:survey_property_id).
+            select("scores.*, SUM(scores.value) as value, survey_properties.name").
+            joins(:survey_property).
+            where(['scores.answer_id IN (?)',score_answer_ids]).all
+    end
   end
 end
 
