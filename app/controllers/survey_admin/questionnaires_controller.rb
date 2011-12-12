@@ -4,7 +4,7 @@ class SurveyAdmin::QuestionnairesController < ApplicationController
   end
 
   def show
-    @questionnaire = Questionnaire.find(params[:id])
+    @questionnaire = Questionnaire.includes(:questions).find(params[:id])
   end
 
   def new

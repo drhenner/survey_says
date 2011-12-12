@@ -1,11 +1,17 @@
-<h1> Questionnaire </h1>
+<h1> Questionnaire (<%= @questionnaire.name %>)</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @questionnaire.name %>
-</p>
+<% if @questionnaire.questions.empty? %>
+  <p>There currently aren't any questions. </p>
+<% else %>
+  <ul>
+    <% @questionnaire.questions.each do |question| %>
+      <li> <%= question.details %>  </li>
+    <% end %>
+  </ul>
+<% end %>
 
+<p><%= link_to "New Question", new_survey_admin_question_path, :class => 'button' %></p>
 <p>
   <%= link_to "Edit", edit_survey_admin_questionnaire_path(@questionnaire), :class => 'button' %> |
-  <%= link_to "View All", survey_admin_questionnaires_path, :class => 'button' %>
+  <%= link_to "View Questionnaires", survey_admin_questionnaires_path, :class => 'button' %>
 </p>
