@@ -14,7 +14,7 @@ The goal is to allow the questionnaire to be:
 move assets into your app
 rails generate survey_says
 
-
+--------
 Edit the user.rb in your app:
 
 
@@ -27,6 +27,9 @@ def survey_admin?
   true # add code here...  return true for users that can add/edit the survey information
 end
 
+--------
+
+bundle exec rake railties:install:migrations
 
 = Contribute
 
