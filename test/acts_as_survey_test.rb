@@ -70,8 +70,6 @@ class ActsAsSurveySaysTest < Test::Unit::TestCase
 
   end
 
-
-
   def test_add_answers
     user    = Factory(:user)
     answer  = Factory(:answer)

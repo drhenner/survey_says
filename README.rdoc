@@ -9,6 +9,24 @@ The goal is to allow the questionnaire to be:
 * able to gather data about the user's characteristics
 * able to score the user's characteristics
 
+= Install
+
+move assets into your app
+rails generate survey_says
+
+
+Edit the user.rb in your app:
+
+
+has_many :user_answers
+has_many :answers, :through => :user_answers
+
+acts_as_survey_says
+
+def survey_admin?
+  true # add code here...  return true for users that can add/edit the survey information
+end
+
 
 = Contribute
 
