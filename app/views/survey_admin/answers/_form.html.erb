@@ -3,7 +3,7 @@
 <ul>
   <li class="field">
     <%= f.label :question_id %>
-    <%= f.number_field :question_id %>
+    <%= f.hidden_field :question_id %>
   </li>
   <li class="field">
     <%= f.label :details %>
@@ -18,7 +18,15 @@
     <%= f.number_field :position %>
   </li>
 </ul>
-
+<% if @survey_image %>
+  <%= f.fields_for :survey_images, @survey_image, :child_index => "new_survey_images" do |survey_images_f|%>
+    <div class='<%= @survey_image.new_record? ? 'new_fields' : 'fields' %> answer-div'>
+      <h3>Image</h3>
+      <%= render :partial => 'survey_image', :locals => { :f => survey_images_f } %>
+      <div class='clearfix'></div>
+    </div>
+  <% end %>
+<% end %>
 
   <%= f.fields_for :scores, :child_index => "new_scores" do |score_f|%>
     <div class='fields answer-div'>

@@ -17,6 +17,7 @@ gem "jquery-rails"
 # gem 'ruby-debug19', :require => 'ruby-debug'
 #
 gem 'twitter-bootstrap-rails'
+gem "paperclip", "~> 2.4"
 #gem "mocha", :group => :test
 
 group :development do

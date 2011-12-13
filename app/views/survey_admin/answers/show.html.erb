@@ -19,7 +19,7 @@
 </p>
 <p>
   <strong>Properties:</strong>
-  <ul>
+  <ul class='span7'>
     <% @answer.scores.each do |score| %>
       <li style='padding:6px;'>
           <label style='padding:0px 5px 0 0;'>  <%= score.survey_property.name %>:</label>
@@ -27,6 +27,9 @@
       </li>
     <% end %>
   </ul>
+  <div class='span3'>
+    <%= image_tag @answer.image unless @answer.image.blank? %>
+  </div>
 </p>
 <p>
   <%= link_to "Edit", edit_survey_admin_question_answer_path(@answer.question, @answer), :class => 'button' %> |

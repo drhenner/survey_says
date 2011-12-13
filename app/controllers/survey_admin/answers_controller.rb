@@ -13,6 +13,7 @@ class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
   def new
     @question   = Question.find(params[:question_id])
     @answer     = @question.answers.new
+    @survey_image = @answer.survey_images.build
     form_info
   end
 
@@ -22,6 +23,7 @@ class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
     if @answer.save
       redirect_to [:survey_admin, @answer.question, @answer], :notice => "Successfully created answer."
     else
+      @survey_image = @answer.survey_images.build
       form_info
       render :new
     end
@@ -29,6 +31,7 @@ class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
 
   def edit
     @answer = Answer.find(params[:id])
+    @survey_image = @answer.survey_images.empty? ? @answer.survey_images.build : @answer.survey_images.first
     form_info
   end
 
@@ -37,6 +40,7 @@ class SurveyAdmin::AnswersController < SurveyAdmin::BaseController
     if @answer.update_attributes(params[:answer])
       redirect_to [:survey_admin, @answer.question, @answer], :notice  => "Successfully updated answer."
     else
+      @survey_image = @answer.survey_images.empty? ? @answer.survey_images.build : @answer.survey_images.first
       form_info
       render :edit
     end

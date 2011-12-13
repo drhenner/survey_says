@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.1.3"
   s.add_dependency "jquery-rails"
   s.add_dependency 'twitter-bootstrap-rails'
+  s.add_dependency "paperclip", "~> 2.4"
 
   s.add_development_dependency "nifty-generators"
   s.add_development_dependency 'ruby-debug19'

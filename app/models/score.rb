@@ -8,5 +8,5 @@ class Score < ActiveRecord::Base
                                           :scope    => :answer_id,
                                           :message  => "should have one score per property"
                                                  }
-  validates :answer_id,    :presence => true
+  #validates :answer_id,    :presence => true
 end

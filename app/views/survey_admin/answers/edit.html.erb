@@ -1,7 +1,8 @@
 <h1> Edit Answer </h1>
 
 <%= form_for @answer, :url => [:survey_admin, @answer.question, @answer] do |f| %>
-  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <%=  render :partial => 'form', :locals => {:f => f},
+                                  :html   => {:class => '', :multipart => true}  %>
   <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
 <% end %>
 

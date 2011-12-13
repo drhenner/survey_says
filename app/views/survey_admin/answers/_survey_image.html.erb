@@ -1,0 +1,10 @@
+
+  <p class='field'>
+    Position: <%= f.select       :position, [1,2,3,4,5,6,7,8,9] %><br/>
+    Caption:  <%= f.text_field   :caption %><br/>
+    Photo:    <%= f.file_field   :photo %>
+  </p>
+
+<% if !f.object.new_record? %>
+  <%= image_tag f.object.photo.url(:small) %>
+<% end %>

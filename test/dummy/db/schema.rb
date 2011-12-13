@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211180011) do
+ActiveRecord::Schema.define(:version => 20111213185612) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(:version => 20111211180011) do
     t.integer  "answer_id"
     t.integer  "survey_property_id"
     t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_images", :force => true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.integer  "position"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
