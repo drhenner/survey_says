@@ -18,6 +18,7 @@
       </div>
       <div id="right-container">
         <ul style='padding:10px;'>
+          <li style='margin-bottom:10px;'><%= link_to "Questionnaires", survey_admin_questionnaires_path() %></li>
           <li style='margin-bottom:10px;'><%= link_to "Questions", survey_admin_questions_path() %></li>
           <% if @question.try(:id) || @answer.try(:id) %>
             <li style='margin-bottom:10px;'>

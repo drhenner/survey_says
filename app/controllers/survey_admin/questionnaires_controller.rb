@@ -1,4 +1,4 @@
-class SurveyAdmin::QuestionnairesController < ApplicationController
+class SurveyAdmin::QuestionnairesController < SurveyAdmin::BaseController
   def index
     @questionnaires = Questionnaire.all
   end
