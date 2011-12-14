@@ -8,11 +8,10 @@ module SurveyModels
     desc "This generator creates survey_says/models/* in your app/models/ directory"
     def copy_models
       require 'fileutils'
-      # FileUtils.cp source, dest
+
       puts "#{File.dirname(__FILE__)}"
       file_path = "#{File.dirname(__FILE__)}"
-      #file_path =  File.expand_path('../../app/models', __FILE__)
-      Dir.foreach( file_path ) do |x|
+      Dir.foreach( "#{file_path}/../../app/models" ) do |x|
       #Dir.glob("#{file_path}/../../app/models/*.rb") do |x|
         puts x
         puts ' -  - - - -  - - - '
