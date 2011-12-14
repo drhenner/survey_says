@@ -26,7 +26,6 @@ module SurveySays
             "\n//= require 'survey_says'\n\n"
          end
       end
-
     end
 
     #include Rails::Generators::Migration
