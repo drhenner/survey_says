@@ -13,8 +13,6 @@ module SurveyModels
       file_path = "#{File.dirname(__FILE__)}"
       Dir.foreach( "#{file_path}/../../app/models" ) do |x|
       #Dir.glob("#{file_path}/../../app/models/*.rb") do |x|
-        puts x
-        puts ' -  - - - -  - - - '
         if x.match(/(\.rb)/)
           unless File.exist?("#{Rails.root}/../../app/models/#{x}")
             puts "Moving #{x} to main app."
