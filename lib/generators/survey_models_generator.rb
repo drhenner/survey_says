@@ -12,11 +12,13 @@ module SurveyModels
       puts "#{File.dirname(__FILE__)}"
       file_path = "#{File.dirname(__FILE__)}"
       #file_path =  File.expand_path('.../../app/models', __FILE__)
-      Dir.foreach( file_path ) do |x|
+      #Dir.foreach( file_path )
+      Dir.glob("#{file_path}/*.rb") do |x|
+        puts x
         if x.match(/(\.rb)/)
-          unless File.exist?("#{Rails.root}/app/models/#{x}")
+          unless File.exist?("#{Rails.root}/../../app/models/#{x}")
             puts "Moving #{x} to main app."
-            FileUtils.cp "#{file_path}../../app/models/#{x}", "#{Rails.root}/app/models/#{x}"
+            FileUtils.cp "#{file_path}/../../app/models/#{x}", "#{Rails.root}/app/models/#{x}"
           else
             puts '##################################'
             puts "app/models/#{x} already exists!"
