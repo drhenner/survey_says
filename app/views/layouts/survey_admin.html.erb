@@ -2,8 +2,8 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Survey Says" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "survey_says" %>
+    <%= javascript_include_tag "survey_says" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
