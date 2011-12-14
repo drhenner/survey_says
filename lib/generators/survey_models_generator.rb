@@ -12,8 +12,9 @@ module SurveyModels
       Dir.foreach("../../app/models") do |x|
         if x.match(/(\.rb)/)
           unless File.exist?("#{Rails.root}/app/models/#{x}")
+            puts "#{Dir.pwd}"
             puts "Moving #{x} to main app."
-            FileUtils.cp "../../app/models/#{x}", "#{Rails.root}/app/models/#{x}"
+            FileUtils.cp "#{Dir.pwd}../../app/models/#{x}", "#{Rails.root}/app/models/#{x}"
           else
             puts '##################################'
             puts "app/models/#{x} already exists!"
