@@ -9,8 +9,9 @@ module SurveyModels
     def copy_models
       require 'fileutils'
       # FileUtils.cp source, dest
-      # puts "#{File.dirname(__FILE__)}"
-      file_path =  File.expand_path('.../../app/models', __FILE__)
+      puts "#{File.dirname(__FILE__)}"
+      file_path = "#{File.dirname(__FILE__)}"
+      #file_path =  File.expand_path('.../../app/models', __FILE__)
       Dir.foreach( file_path ) do |x|
         if x.match(/(\.rb)/)
           unless File.exist?("#{Rails.root}/app/models/#{x}")
