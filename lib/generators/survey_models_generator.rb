@@ -9,10 +9,10 @@ module SurveyModels
     def copy_models
       require 'fileutils'
       # FileUtils.cp source, dest
-      Dir.foreach("../../app/models") do |x|
+      puts "#{Dir.pwd}"
+      Dir.foreach("#{Dir.pwd}../../app/models") do |x|
         if x.match(/(\.rb)/)
           unless File.exist?("#{Rails.root}/app/models/#{x}")
-            puts "#{Dir.pwd}"
             puts "Moving #{x} to main app."
             FileUtils.cp "#{Dir.pwd}../../app/models/#{x}", "#{Rails.root}/app/models/#{x}"
           else
