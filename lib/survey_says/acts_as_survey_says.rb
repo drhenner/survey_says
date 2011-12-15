@@ -12,8 +12,8 @@ module SurveySays
       end
     end
 
-    def add_answers(answer_ids)
-      self.answer_ids = answer_ids | answer_ids
+    def add_answers(ids)
+      self.answer_ids = answer_ids | ids
       self.save
     end
 
