@@ -11,13 +11,15 @@ The goal is to allow the questionnaire to be:
 
 = Install
 
-gem 'survey_says', :git => 'git://github.com:drhenner/survey_says.git'
+   gem 'survey_says', :git => 'git://github.com:drhenner/survey_says.git'
 
 move assets into your app
-rails generate survey_says
+
+  rails generate survey_says
 
 move models into your app
-rails generate survey_models
+
+  rails generate survey_models
 
 --------
 
@@ -25,7 +27,7 @@ add PAPERCLIP_STORAGE_OPTS to environments/*.rb
 
 for example:
 
-PAPERCLIP_STORAGE_OPTS = {  :styles => {:mini => '48x48>',
+   PAPERCLIP_STORAGE_OPTS = {  :styles => {:mini => '48x48>',
                                         :small => '100x100>',
                                         :product => '320x320>',
                                         :large => '600x600>' },
@@ -36,18 +38,18 @@ PAPERCLIP_STORAGE_OPTS = {  :styles => {:mini => '48x48>',
 Edit the user.rb in your app:
 
 
-has_many :user_answers
-has_many :answers, :through => :user_answers
+   has_many :user_answers
+   has_many :answers, :through => :user_answers
 
-acts_as_survey_says
+  acts_as_survey_says
 
-def survey_admin?
-  true # add code here...  return true for users that can add/edit the survey information
-end
+   def survey_admin?
+     true # add code here...  return true for users that can add/edit the survey information
+   end
 
 --------
 
-bundle exec rake railties:install:migrations
+   bundle exec rake railties:install:migrations
 
 = Contribute
 
