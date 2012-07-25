@@ -49,7 +49,7 @@ Edit the user.rb in your app:
 
 --------
 
-   bundle exec rake railties:install:migrations
+   bundle exec rake survey_says_engine:install:migrations
 
 = Contribute
 
