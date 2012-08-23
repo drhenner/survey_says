@@ -11,7 +11,7 @@ The goal is to allow the questionnaire to be:
 
 = Install
 
-   gem 'survey_says', :git => 'git://github.com:drhenner/survey_says.git'
+   gem 'survey_says', :git => 'git://github.com/drhenner/survey_says.git'
 
 move assets into your app
 
