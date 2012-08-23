@@ -14,13 +14,15 @@
 ActiveRecord::Schema.define(:version => 20111213185612) do
 
   create_table "answers", :force => true do |t|
-    t.integer  "question_id"
+    t.integer  "question_id",                   :null => false
     t.text     "details"
-    t.boolean  "active"
+    t.boolean  "active",      :default => true
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
   create_table "questionnaires", :force => true do |t|
     t.string "name", :null => false
@@ -29,8 +31,8 @@ ActiveRecord::Schema.define(:version => 20111213185612) do
   add_index "questionnaires", ["name"], :name => "index_questionnaires_on_name"
 
   create_table "questions", :force => true do |t|
-    t.text     "details"
-    t.boolean  "active"
+    t.text     "details",                            :null => false
+    t.boolean  "active",           :default => true
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,12 +42,15 @@ ActiveRecord::Schema.define(:version => 20111213185612) do
   add_index "questions", ["questionnaire_id"], :name => "index_questions_on_questionnaire_id"
 
   create_table "scores", :force => true do |t|
-    t.integer  "answer_id"
-    t.integer  "survey_property_id"
-    t.integer  "value"
+    t.integer  "answer_id",          :null => false
+    t.integer  "survey_property_id", :null => false
+    t.integer  "value",              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "scores", ["answer_id"], :name => "index_scores_on_answer_id"
+  add_index "scores", ["survey_property_id"], :name => "index_scores_on_survey_property_id"
 
   create_table "survey_images", :force => true do |t|
     t.integer  "imageable_id"
@@ -60,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20111213185612) do
   end
 
   create_table "survey_properties", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

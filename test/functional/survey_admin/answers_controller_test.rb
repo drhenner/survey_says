@@ -46,7 +46,8 @@ class SurveyAdmin::AnswersControllerTest < ActionController::TestCase
   end
 
   def test_update_invalid
-    @question = Factory(:question)
+    @question = FactoryGirl.create(:question)
+    puts @question.inspect
     @answer = Factory(:answer, :question => @question)
     Answer.any_instance.stubs(:valid?).returns(false)
     put :update, :id => @answer.id, :question_id => @question.id
@@ -54,7 +55,7 @@ class SurveyAdmin::AnswersControllerTest < ActionController::TestCase
   end
 
   def test_update_valid
-    @question = Factory(:question)
+    @question = FactoryGirl.create(:question)
     @answer = Factory(:answer, :question => @question)
     Answer.any_instance.stubs(:valid?).returns(true)
     put :update, :id => @answer.id, :question_id => @question.id

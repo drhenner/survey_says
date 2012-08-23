@@ -21,13 +21,13 @@ class SurveyAdmin::QuestionsControllerTest < ActionController::TestCase
 
   def test_create_invalid
     Question.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :question => {:details => 'hello'}
     assert_template 'new'
   end
 
   def test_create_valid
     Question.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :question => {:details => 'hello'}
     assert_redirected_to survey_admin_question_answers_url(assigns(:question))
   end
 
@@ -40,14 +40,14 @@ class SurveyAdmin::QuestionsControllerTest < ActionController::TestCase
   def test_update_invalid
     question = Factory(:question)
     Question.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => question.id
+    put :update, :id => question.id, :question => {:details => 'hello'}
     assert_template 'edit'
   end
 
   def test_update_valid
     question = Factory(:question)
     Question.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => question.id
+    put :update, :id => question.id, :question => {:details => 'hello'}
     assert_redirected_to survey_admin_question_answers_url(assigns(:question))
   end
 

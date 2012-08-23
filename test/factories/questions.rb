@@ -1,5 +1,5 @@
 Factory.define :question do |s|
-  s.details   'John'
+  s.details   'John blah blah blah'
   s.active    true
   s.position  1
 end

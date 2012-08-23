@@ -20,13 +20,13 @@ class SurveyAdmin::SurveyPropertiesControllerTest < ActionController::TestCase
 
   def test_create_invalid
     SurveyProperty.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :survey_property => {:name => 'hello'}
     assert_template 'new'
   end
 
   def test_create_valid
     SurveyProperty.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :survey_property => {:name => 'hello'}
     assert_redirected_to survey_admin_survey_property_url(assigns(:survey_property))
   end
 
@@ -39,14 +39,14 @@ class SurveyAdmin::SurveyPropertiesControllerTest < ActionController::TestCase
   def test_update_invalid
     @survey_property = Factory(:survey_property)
     SurveyProperty.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @survey_property.id
+    put :update, :id => @survey_property.id, :survey_property => {:name => 'hello'}
     assert_template 'edit'
   end
 
   def test_update_valid
     @survey_property = Factory(:survey_property)
     SurveyProperty.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => @survey_property.id
+    put :update, :id => @survey_property.id, :survey_property => {:name => 'hello'}
     assert_redirected_to survey_admin_survey_property_url(assigns(:survey_property))
   end
 
