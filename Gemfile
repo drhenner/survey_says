@@ -18,14 +18,13 @@ gem "jquery-rails"
 #
 gem 'twitter-bootstrap-rails'
 gem "paperclip", "~> 2.4"
-#gem "mocha", :group => :test
+gem "mocha", :group => :test
 
 group :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'debugger'
   gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
 end
 
 group :test do
   gem 'factory_girl_rails', "~> 1.1.0"
-
 end
